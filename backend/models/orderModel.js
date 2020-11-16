@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const orderSchema = mongoose.Schema(
 	{
@@ -9,13 +9,13 @@ const orderSchema = mongoose.Schema(
 		},
 		orderItems: [
 			{
-				name: { type: String, required: True },
-				qty: { type: Number, required: True },
-				image: { type: String, required: True },
-				price: { type: Number, required: True },
+				name: { type: String, required: true },
+				qty: { type: Number, required: true },
+				image: { type: String, required: true },
+				price: { type: Number, required: true },
 				product: {
 					type: mongoose.Schema.Types.ObjectId,
-					required: True,
+					required: true,
 					ref: 'Product',
 				},
 			},
@@ -75,4 +75,4 @@ const orderSchema = mongoose.Schema(
 
 const Order = mongoose.model('Order', orderSchema);
 
-export default Order;
+module.exports = Order;
